@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      My Location
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">My Location</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item>
+    <ion-button [disabled]="clicked" color="primary" (click)="getLocation(); clicked = true;">
+      GET LOCATION
+    </ion-button>
+  </ion-item>
+
+  <ion-list>
+      <app-my-row *ngFor="let loc of locList; let i = index;" [loc] = "loc" [index] = "i" (removeItemCall) =  "deleteLoc($event)"></app-my-row>
+  </ion-list>
+
+</ion-content>
